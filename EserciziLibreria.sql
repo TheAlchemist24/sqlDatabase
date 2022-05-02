@@ -105,6 +105,10 @@ where r.AnnoPubblicazione < 1900 and r.Titolo like "%sposi%"
 
 /*17. Romanzi"di"Alessandro"Manzoni"*/
 
+select r.*
+from romanzo r, autore a
+where r.autore = a.ID and a.Nome = "Alessandro" and a.Cognome = "Manzoni"
+
 /*18. Titoli"dei"romanzi"scritti"da"Don"DeLillo,"escludendo"eventuali"duplicati*/
 
 /*19. Romanzi"con"il"personaggio"di"Benjamin"Malaussène"*/
