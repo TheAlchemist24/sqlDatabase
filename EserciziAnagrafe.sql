@@ -17,5 +17,5 @@ where p.Età > 50
 
 /* 4. vogliamo sapere chi sono i nonni*/
 
-select g2.Genitore as Nonni
+select distinct g2.Genitore as Nonni
 from genia g1 join genia g2 on g1.Genitore = g2.Figlio
