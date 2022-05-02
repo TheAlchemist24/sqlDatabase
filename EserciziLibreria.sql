@@ -99,6 +99,10 @@ where r.Titolo like "%blues"
 /*16. Romanzi"pubblicati"prima"del"1900"e"con"la"parola"“Sposi”"nel"titolo,"scritta"l’iniziale"
 maiuscola"o"minuscola"*/
 
+select *
+from romanzo r
+where r.AnnoPubblicazione < 1900 and r.Titolo like "%sposi%"
+
 /*17. Romanzi"di"Alessandro"Manzoni"*/
 
 /*18. Titoli"dei"romanzi"scritti"da"Don"DeLillo,"escludendo"eventuali"duplicati*/
