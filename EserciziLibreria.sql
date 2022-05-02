@@ -111,6 +111,18 @@ where r.autore = a.ID and a.Nome = "Alessandro" and a.Cognome = "Manzoni"
 
 /*18. Titoli"dei"romanzi"scritti"da"Don"DeLillo,"escludendo"eventuali"duplicati*/
 
+select r.Titolo
+from romanzo r, autore a
+where r.autore = a.ID and a.Nome = "Lewis" and a.Cognome = "Carroll"
+
 /*19. Romanzi"con"il"personaggio"di"Benjamin"Malaussène"*/
 
+select r.*
+from romanzo r, personaggioromanzo pr, personaggio p
+where r.ID = pr.romanzo and p.ID = pr.personaggio and p.Nome = "Cat" and p.Cognome = "Cheshire"
+
 /*20. Romanzi"il"cui"autore"non"è"presente"nel"database"*/
+
+select r.*
+from romanzo r, autore a
+where r.autore = a.ID and a.ID is null
