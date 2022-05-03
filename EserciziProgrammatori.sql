@@ -15,3 +15,13 @@ from programmatore p join autore a on p.codice = a. codice
     join programma pr on a.id = pr.id
 where pr.linguaggio != "Python"
 order by p.nome
+
+/* 3. Per ogni programmatore di categoria 10, calcolare il suo
+codice e l'anno in cui ha scritto il primo programma in un
+linguaggio diverso da Java. */
+
+select distinct p.codice, min(pr.anno) as "anno primo programma non in Java"
+from programmatore p join autore a on p.codice = a. codice
+    join programma pr on a.id = pr.id
+where pr.linguaggio != "Java" and p.categoria = 10
+group by p.codice
