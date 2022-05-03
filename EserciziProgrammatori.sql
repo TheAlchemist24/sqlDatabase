@@ -25,3 +25,11 @@ from programmatore p join autore a on p.codice = a. codice
     join programma pr on a.id = pr.id
 where pr.linguaggio != "Java" and p.categoria = 10
 group by p.codice
+
+/* 4. Calcolare le coppie dei codici di programmatori che sono stati
+coautori di almeno un programma scritto in Python. */
+
+select a1.codice as programmatore1, a2.codice as programmatore2
+from autore a1 join autore a2 on a1.id = a2.id
+    join programma pr on a1.id = pr.id
+where pr.linguaggio = "Python" and a1.codice != a2.codice and a1.codice < a2.codice 
