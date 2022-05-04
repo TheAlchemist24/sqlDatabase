@@ -61,9 +61,11 @@ stesso continente devono essere mostrati in tuple contigue, e
 le tuple relative allo stesso continente devono essere ordinate
 per anno. */
 
-select 
-from
-where
+select sc.nazione, sc.anno, count(*) as "numero scalate"
+from scalata sc join nazione n on sc.nazione = n.nome
+group by sc.nazione, sc.anno
+having count(*)>1
+order by n.continente, sc.anno
 
 /* 8. Per ogni nazione N, calcolare il numero medio di
 scalate effettuate all’anno in N da scalatori nati in
