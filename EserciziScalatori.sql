@@ -30,9 +30,11 @@ group by n.nome
 /* 4. Per ogni nazione, calcolare il numero di scalate effettuate da
 scalatori nati in quella nazione. */
 
-select 
-from
-where
+select n.nome, count(*) as "scalate residenti"
+from scalatore s join scalata sc on s.cf = sc.scalatore
+    join nazione n on sc.nazione = n.nome
+where n.nome = s.nazioneNascita
+group by n.nome
 
 /* 5. Per ogni continente, calcolare il numero di scalate effettuate
 da scalatori nati in una nazione di quel continente.*/
