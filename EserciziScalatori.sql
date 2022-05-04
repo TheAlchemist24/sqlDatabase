@@ -49,9 +49,10 @@ dall’America, e, solo se egli ha effettuato almeno una scalata,
 affiancare queste informazioni alle nazioni in cui ha effettuato
 scalate. */
 
-select 
-from
-where
+select distinct sc.nazione as "nazione scalata", s.cf, s.nazioneNascita, nasc.continente as "continente di nascita"
+from scalatore s join scalata sc on s.cf = sc.scalatore
+    left join nazione nasc on nasc.nome = s.nazioneNascita
+where s.nazioneNascita != "America"
 
 /* 7. Per ogni nazione e per ogni anno, calcolare il numero di
 scalate effettuate in quella nazione e in quell’anno, ma solo se
