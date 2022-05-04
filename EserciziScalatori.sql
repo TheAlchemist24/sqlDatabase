@@ -39,9 +39,10 @@ group by n.nome
 /* 5. Per ogni continente, calcolare il numero di scalate effettuate
 da scalatori nati in una nazione di quel continente.*/
 
-select 
-from
-where
+select nasc.continente, count(*)
+from scalatore s join scalata sc on s.cf = sc.scalatore
+    join nazione nasc on nasc.nome = s.nazioneNascita
+group by nasc.continente
 
 /* 6. Calcolare codice fiscale, nazione di nascita, continente di
 nascita di ogni scalatore nato in un continente diverso
