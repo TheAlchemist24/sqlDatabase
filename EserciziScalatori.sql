@@ -11,9 +11,11 @@ ordinando il risultato per codice fiscale e, a parità di
 codice fiscale, per il nome del continente. */
 
 
-select 
-from
-where
+select s.cf, n.continente
+from scalatore s join scalata sc on s.cf = sc.scalatore
+    join nazione n on sc.nazione = n.nome
+where s.annoNascita < 1980
+order by s.cf, n.nome
 
 /* 3. Calcolare le nazioni (mostrando, per ciascuna, anche il
 continente) nelle quali è stata effettuata almeno una scalata
