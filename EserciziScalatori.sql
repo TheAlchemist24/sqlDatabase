@@ -71,9 +71,10 @@ order by n.continente, sc.anno
 scalate effettuate all’anno in N da scalatori nati in
 nazioni diverse da N. */
 
-select 
-from
-where
+select sc.nazione, count(*)/count(sc.anno) as "scalate effettuate in media"
+from scalatore s join scalata sc on s.cf = sc.scalatore
+where s.nazioneNascita != sc.nazione
+group by sc.nazione
 
 /* 9. Calcolare gli scalatori tali che tutte le scalate che
 hanno effettuato nella nazione di nascita le hanno
