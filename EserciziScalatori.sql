@@ -24,8 +24,7 @@ da uno scalatore minorenne.  */
 select n.nome, n.continente
 from scalatore s join scalata sc on s.cf = sc.scalatore
     join nazione n on sc.nazione = n.nome
-where sc.anno - s.annoNascita < 30 
-group by n.nome
+where sc.anno - s.annoNascita < 18
 
 /* 4. Per ogni nazione, calcolare il numero di scalate effettuate da
 scalatori nati in quella nazione. */
