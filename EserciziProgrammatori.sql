@@ -65,11 +65,8 @@ group by pr.linguaggio
 /* esercizio sfida */
 
 
-select bestProgrammatore.codice
-from (select Autore.codice, count(*) as apps
+select Autore.codice
 from Autore join Programmatore on Autore.codice = Programmatore.codice
 group by Autore.codice
-order by apps desc
+order by count(*) desc
 limit 1
-) bestProgrammatore
-
