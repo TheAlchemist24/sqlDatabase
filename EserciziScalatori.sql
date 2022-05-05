@@ -37,7 +37,7 @@ group by sc.nazione
 /* 5. Per ogni continente, calcolare il numero di scalate effettuate
 da scalatori nati in una nazione di quel continente.*/
 
-select nasc.continente, count(*)
+select nasc.continente, count(*) as "scalatori"
 from scalatore s join scalata sc on s.cf = sc.scalatore
     join nazione nasc on nasc.nome = s.nazioneNascita
 group by nasc.continente
@@ -79,6 +79,9 @@ group by sc.nazione
 hanno effettuato nella nazione di nascita le hanno
 effettuate quando erano minorenni. */
 
-select 
-from nasc.continente
-where
+select distinct sc.scalatore
+from scalata sc
+where sc.scalatore not in (select s.cf
+    from scalatore s
+    where sc.anno - s.annoNascita > 90 and sc.nazione = s.nazioneNascita
+    )
