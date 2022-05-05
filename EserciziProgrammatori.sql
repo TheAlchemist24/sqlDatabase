@@ -36,12 +36,14 @@ where pr.linguaggio = "Python" and a1.codice != a2.codice and a1.codice < a2.cod
 
 /* 5. Calcolare il codice ed il nome dei programmatori che hanno
 scritto solo programmi Java. */
-
-select p.codice, p.nome
-from programmatore p join autore a on p.codice = a.codice
-    join programma pr on a.id = pr.id
-group by p.codice
-having count(*) = count(pr.linguaggio = "Java") and pr.linguaggio = "Java"
+/* da modificare se si desidera eliminare chi non ha scritto 
+nessun programma inserito nel database */
+select p.codice, nome
+from programmatore p 
+where p.codice not in (select a.codice
+                from autore a join programma pr on a.id = pr.id
+                where linguaggio != "Java"
+                )
 
 /* 6. Per ogni programmatore e per ogni anno calcolare il
 numero di programmi scritti da quel programmatore
