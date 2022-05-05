@@ -49,7 +49,7 @@ affiancare queste informazioni alle nazioni in cui ha effettuato
 scalate. */
 
 select distinct sc.nazione as "nazione scalata", s.cf, s.nazioneNascita, nasc.continente as "continente di nascita"
-from scalatore s join scalata sc on s.cf = sc.scalatore
+from scalatore s left join scalata sc on s.cf = sc.scalatore
     left join nazione nasc on nasc.nome = s.nazioneNascita
 where s.nazioneNascita != "America"
 
