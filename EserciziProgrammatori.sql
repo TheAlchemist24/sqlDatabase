@@ -60,3 +60,16 @@ autori dei programmi scritti in quel linguaggio. */
 select distinct pr.linguaggio, count(a.codice)/count(distinct pr.id) as "Autori per programma in media"
 from programma pr left join autore a on pr.id = a.id
 group by pr.linguaggio
+
+
+/* esercizio sfida */
+
+
+select bestProgrammatore.codice
+from (select Autore.codice, count(*) as apps
+from Autore join Programmatore on Autore.codice = Programmatore.codice
+group by Autore.codice
+order by apps desc
+limit 1
+) bestProgrammatore
+
