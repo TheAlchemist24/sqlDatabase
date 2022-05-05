@@ -83,5 +83,5 @@ select distinct sc.scalatore
 from scalata sc
 where sc.scalatore not in (select s.cf
     from scalatore s
-    where sc.anno - s.annoNascita > 90 and sc.nazione = s.nazioneNascita
+    where sc.anno - s.annoNascita > 18 and sc.nazione = s.nazioneNascita
     )
