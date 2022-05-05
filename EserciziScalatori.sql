@@ -11,7 +11,7 @@ ordinando il risultato per codice fiscale e, a parità di
 codice fiscale, per il nome del continente. */
 
 
-select s.cf, n.continente
+select distinct s.cf, n.continente
 from scalatore s join scalata sc on s.cf = sc.scalatore
     join nazione n on sc.nazione = n.nome
 where s.annoNascita < 1980
@@ -82,5 +82,5 @@ hanno effettuato nella nazione di nascita le hanno
 effettuate quando erano minorenni. */
 
 select 
-from
+from nasc.continente
 where
