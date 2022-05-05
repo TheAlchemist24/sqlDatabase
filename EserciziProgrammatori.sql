@@ -36,10 +36,9 @@ where pr.linguaggio = "Python" and a1.codice != a2.codice and a1.codice < a2.cod
 
 /* 5. Calcolare il codice ed il nome dei programmatori che hanno
 scritto solo programmi Java. */
-/* da modificare se si desidera eliminare chi non ha scritto 
-nessun programma inserito nel database */
+
 select p.codice, nome
-from programmatore p 
+from programmatore p join autore a on a.codice=p.codice
 where p.codice not in (select a.codice
                 from autore a join programma pr on a.id = pr.id
                 where linguaggio != "Java"
